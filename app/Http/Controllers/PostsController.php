@@ -16,12 +16,9 @@ class PostsController extends Controller
     {   
         $posts = Post::orderBy('created_at', 'desc')->paginate(16);
         
-        
-        
         return view('posts.list', [
            'posts' =>  $posts,
         ]);
-        
     }
     
     public function index()
@@ -35,15 +32,24 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        $post = Post::find(id);
         
-
+        if (\Auth::id() === $post->use_id) {
+            $post->delete();
+        }
+        
+        return redirect()->back();
     }
 
-    public function show()
+    public function show($id)
     {
-
+        $post = Post::find($id);
+        
+        return view('posts.show', [
+           'post' =>  $post,
+        ]);        
     }
 
     public function store(Request $request)

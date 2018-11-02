@@ -1,0 +1,10 @@
+.post {
+    margin: 10px 0;
+}
+
+.nav nav-pills{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+}

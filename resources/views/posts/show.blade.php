@@ -19,7 +19,7 @@
         </div>
     </li>
 </ul>
-<!--フォローボタン-->
+@include('user_follow.follow_button')
 
     <div class ="showcontent">
         <img src="{{ Storage::disk('s3')->url($post->image_path) }}" class="img-responsive">

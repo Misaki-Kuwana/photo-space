@@ -25,7 +25,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-		                        <li><a href="#">マイページ</a></li>
+		                        <li><a href="{{ route('users.show', ['id' => Auth::id()]) }}">マイページ</a></li>
 		                        <li role="separator" class="divider"></li>
 		                        <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
 	                        </ul>

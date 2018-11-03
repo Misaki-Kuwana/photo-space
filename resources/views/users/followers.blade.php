@@ -22,13 +22,13 @@
 
     <div class="menu">
         <ul class="nav nav-tabs">
-        	<li role="presentation" class="active"><a href="{{ route('users.show', ['id' => $user->id]) }}">投稿一覧</a></li>
+        	<li role="presentation" ><a href="{{ route('users.show', ['id' => $user->id]) }}">投稿一覧</a></li>
         	<li role="presentation" ><a href="">お気に入り</a></li>
         	<li role="presentation" ><a href="{{ route('user.followings', ['id' => $user->id]) }}">フォローユーザー</a></li>
-        	<li role="presentation" ><a href="{{ route('user.followers', ['id' => $user->id]) }}">フォロワー</a></li>
+        	<li role="presentation" class="active"><a href="{{ route('user.followers', ['id' => $user->id]) }}">フォロワー</a></li>
         </ul>  
     </div>
 
-@include('posts.images')
+@include('users.index')
 
 @endsection

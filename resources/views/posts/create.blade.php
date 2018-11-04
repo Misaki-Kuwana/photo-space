@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-<h1>写真投稿</h1>
-
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-12 col-sm-8 col-lg-6">
+        <div class="pagetop">
+        <h1>写真を投稿する</h1>
+        </div>
 
         {!! Form::open(['route' => 'posts.store', 'class' => 'form', 'files' => true]) !!}
     
@@ -15,8 +15,8 @@
             </div>
      
             <div class="form-group">
-                {!! Form::label('content', 'メッセージを入力') !!}
-                {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                {!! Form::label('content', '説明文') !!}
+                {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
             </div>       
        
             <div class="form-group">

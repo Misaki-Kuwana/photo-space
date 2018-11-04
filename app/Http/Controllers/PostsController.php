@@ -22,9 +22,18 @@ class PostsController extends Controller
     }
     
     public function index()
-    {
-        return view('welcome');
-
+    {   
+        $data = [];
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $posts = $user->feed_posts()->orderBy('created_at', 'desc')->paginate(16);
+            
+            $data = [
+                'user' => $user,
+                'posts' => $posts,
+            ];
+        }
+        return view('welcome', $data);
     }
     
     public function create()
@@ -36,11 +45,11 @@ class PostsController extends Controller
     {
         $post = \App\Post::find($id);
         
-        if (\Auth::id() === $post->use_id) {
+        if (\Auth::id() === $post->user_id) {
             $post->delete();
         }
         
-        return redirect()->back();
+        return redirect('/');
     }
 
     public function show($id)
